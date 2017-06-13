@@ -1,3 +1,4 @@
+import { PLAYER1 } from 'SRC/constants';
 function newBoard() {
   return [
     [0,0,0,0,0,0,0],
@@ -17,4 +18,14 @@ function findFirstRow(board, column) {
   }
 }
 
-export { newBoard, findFirstRow }
+function addDisc(board, player, column) {
+  const row = findFirstRow(board, column);
+  const elementValue = player === PLAYER1 ? 1 : 2
+  const changedRow = board[row]
+  // refactor to make pure function
+  board[row][column] = elementValue;
+
+  return board;
+}
+
+export { newBoard, findFirstRow, addDisc }
