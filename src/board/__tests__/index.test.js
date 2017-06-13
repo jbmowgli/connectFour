@@ -26,7 +26,6 @@ it('checks the next available row, given a column', () => {
 })
 
 it('adds a disc to the board', () => {
-  const user = PLAYER1;
   const testBoard = [
     [0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
