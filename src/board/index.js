@@ -1,13 +1,14 @@
-import { PLAYER1 } from 'SRC/constants';
+import { PLAYER1, ROWS, COLUMNS } from 'SRC/constants';
 function newBoard() {
-  return [
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0]
-  ];
+  let board = [];
+  for (let i = 0; i < ROWS; i += 1) {
+    let row = []
+    for (let j = 0; j < COLUMNS; j += 1) {
+      row.push(0);
+    }
+    board.push(row);
+  }
+  return board;
 }
 
 function findFirstRow(board, column) {
