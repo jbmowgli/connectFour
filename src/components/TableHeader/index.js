@@ -1,19 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import { COLUMNS } from 'SRC/constants'
+import { COLUMNS } from 'SRC/constants';
 
 const TableHeader = props => {
-  let buttons = [];
-  for(let i = 0; i < COLUMNS; i += 1) {
-    buttons.push(
-      <th key={`button_${i}`}>
-        <button
-          type="button"
-          onClick={() => props.action(i)}
-        />
-      </th>
-    )
-  }
+  const buttons = Array.from({ length: COLUMNS }).map((_, i) =>
+    <th key={`button_${i}`}>
+      <button type="button" onClick={() => props.action(i)} />
+    </th>
+  );
+
   return (
     <thead>
       <tr>
@@ -21,6 +16,6 @@ const TableHeader = props => {
       </tr>
     </thead>
   );
-}
+};
 
-export { TableHeader }
+export { TableHeader };

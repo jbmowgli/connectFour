@@ -2,7 +2,7 @@ import { PLAYER1, ROWS, COLUMNS } from 'SRC/constants';
 function newBoard() {
   let board = [];
   for (let i = 0; i < ROWS; i += 1) {
-    let row = []
+    let row = [];
     for (let j = 0; j < COLUMNS; j += 1) {
       row.push(0);
     }
@@ -24,12 +24,18 @@ function addDisc(board, player, column) {
   const row = findFirstRow(board, column);
   if (row >= 0) {
     const elementValue = player;
-    const changedRow = board[row];
     // refactor to make pure function
     board[row][column] = elementValue;
-    return board;
+    const win = checkForWin(board, player, row, column);
+    return {
+      board,
+      message: win ? `Player ${player} wins` : null
+    };
   }
-  return false;
+  return {
+    board,
+    message: 'invalid move'
+  };
 }
 
 function checkForWin(board, player, row, col) {
