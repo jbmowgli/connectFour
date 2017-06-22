@@ -61,7 +61,7 @@ function checkForWin(board, player, row, col) {
 
   function adjacentCell(row, col, rowDir, colDir) {
     if (getCell(row, col) === getCell(row + rowDir, col + colDir)) {
-      return 1 + adjacentCell(row + rowDir, col + colDir, colDir, rowDir);
+      return 1 + adjacentCell(row + rowDir, col + colDir, rowDir, colDir);
     } else {
       return 0;
     }
